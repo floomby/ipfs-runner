@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "version": "0.1.0",
+  "name": "@chain-runner/runner",
+  "main": "dist/runner.js",
+  "scripts": {
+    "build": "tsc",
+    "autobuild": "tsc --watch"
+  }
+}

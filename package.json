@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "chain-runner-repo",
+  "workspaces": [
+    "workspaces/*"
+  ],
+  "dependencies": {
+    "concurrently": "^7.1.0",
+    "vm2": "^3.9.9"
+  },
+  "scripts": {
+    "runner": "yarn workspace @chain-runner/runner",
+    "dispatch": "yarn workspace @chain-runner/dispatch",
+    "smartcontracts": "yarn workspace @chain-runner/smartcontracts",
+    "build": "yarn runner build && sudo docker build -t chain-runner . && yarn dispatch build",
+    "run-container": "sudo docker run --add-host host.docker.internal:host-gateway -p 5556:5556 -ti --rm chain-runner"
+  },
+  "devDependencies": {
+    "ts-node": "^10.7.0"
+  }
+}
